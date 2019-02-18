@@ -1,34 +1,55 @@
 body{
     display: grid;
-    /* 定义行列的宽度 3行4列*/
+    /* 定义行列的宽度,可以使用auto自动撑开 3行4列*/
+    /*如:  grid: 100px auto 100px 上下100px 中间自动撑开*/
     grid: 100px 200px 100px / 1fr 300px 600px 1fr;
 }
 header{
     /* 1 / 5 表示列的网格线 */
     grid-column: 1 / 5; 
     grid-row: 1 / 2;
-    text-align: center;
-    padding-top: 42px;
     background: red;
 }
 aside{
     grid-column: 2 / 3; 
     grid-row: 2 / 3;
-    text-align: center;
-    padding-top: 92px;
     background: green;
 }
 main{
     grid-column: 3 / 4;
     grid-row: 2 / 3;
-    text-align: center;
-    padding-top: 92px;
     background: yellow;
 }
 footer{
     grid-column: 1 / 5; 
     grid-row: 3 / 4;
-    text-align: center;
-    padding-top: 42px;
     background: blue;
+}
+/* 使用媒体查询，在页面宽度小于900px时，变为4行1列 */
+@media(max-width:900px){
+    body{
+        /* 定义行列的宽度 4行1列*/
+        grid: 100px 100px 100px 100px / 1fr ;
+    }
+    header{
+        /* 1 / 5 表示列的网格线 */
+        grid-column: 1; 
+        grid-row: 1;
+        background: red;
+    }
+    aside{
+        grid-column: 1; 
+        grid-row: 2;
+        background: green;
+    }
+    main{
+        grid-column: 1;
+        grid-row: 3;
+        background: yellow;
+    }
+    footer{
+        grid-column: 1; 
+        grid-row: 4;
+        background: blue;
+    }
 }
